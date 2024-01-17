@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siblings</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Products</li>
+        <li class="current">Customer Support</li>
+        <li >Careers</li>
+        <li>Investors</li>
+        <li>News</li>
+        <li>About Us</li>
+    </ul>
+
+    <script>
+        /* let current =document.querySelector(".current");
+        
+        //for previous element
+        let previousSibling=current.previousElementSibling;
+        
+
+        while(previousSibling){
+            console.log("previousSibling: ",previousSibling)
+            previousSibling=previousSibling.previousElementSibling
+        }
+        //for next element 
+        let nextSibling=current.nextElementSibling;
+
+        while(nextSibling){
+            console.log(nextSibling)
+            nextSibling=nextSibling.nextElementSibling
+        } */
+        
+        const getSiblings=function(e){
+
+            //collecting Siblings
+            let Siblings=[];
+
+            //if has no parent, no siblings
+            if(!e.parentNode){
+                return Siblings;
+            }
+            //store firstChild in the parentNode
+            let Sibling=e.parentNode.firstChild;
+            
+            //itarate and collecting siblings 
+            while(Sibling){
+                if(Sibling.nodeType===1 & Sibling !==e){
+                    Siblings.push(Sibling)
+                }
+                Sibling=Sibling.nextSibling;
+            }
+            return Siblings
+        }
+         let Siblings=getSiblings(document.querySelector(".current"));
+         siblingText = Siblings.map( e => e.innerHTML)
+        console.log(siblingText)
+    </script>
+</body>
+</html>
