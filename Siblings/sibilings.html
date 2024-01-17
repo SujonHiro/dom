@@ -6,17 +6,52 @@
     <title>Siblings</title>
 </head>
 <body>
+
     <ul id="menu">
         <li>Home</li>
         <li>Products</li>
         <li class="current">Customer Support</li>
-        <li >Careers</li>
+        <li>Careers</li>
         <li>Investors</li>
         <li>News</li>
         <li>About Us</li>
     </ul>
+    <div>
+        <div>firstChild</div>
+        <div>secondChild</div>
+        <div class="current">thirdChild</div>
+        <div>fourthChild</div>
+        <div>fiveChild</div>
+        <div>sixChild</div>
+    </div>
 
     <script>
+        
+
+        const getSiblings=function(e){
+            let Siblings=[];
+
+            if(!e.parentNode){
+                return Siblings;
+            }
+
+            let Sibling=e.parentNode.firstChild
+
+            while(Sibling){
+                if(Sibling.nodeType===1 || Sibling === e){
+                    Siblings.push(Sibling)
+                }
+                Sibling=Sibling.nextSibling
+            }
+            return Siblings
+
+        }
+
+        let Siblings=getSiblings(document.querySelector(".current"))
+        let SiblingText=Siblings.map(e=>e.innerHTML)
+        console.log(SiblingText)
+
+
         /* let current =document.querySelector(".current");
         
         //for previous element
@@ -35,7 +70,7 @@
             nextSibling=nextSibling.nextElementSibling
         } */
         
-        const getSiblings=function(e){
+       /*  const getSiblings=function(e){
 
             //collecting Siblings
             let Siblings=[];
@@ -58,7 +93,8 @@
         }
          let Siblings=getSiblings(document.querySelector(".current"));
          siblingText = Siblings.map( e => e.innerHTML)
-        console.log(siblingText)
+        console.log(siblingText) */
+
     </script>
 </body>
 </html>
