@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript replaceChild</title>
+</head>
+<body>
+    <!-- 1. <ul id="menu">
+        <li>Homepage</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul> -->
+
+    <ul id="menu">
+        <li>Home</li>
+        <li>Products</li>
+        <li>About Us</li>
+    </ul>
+
+
+    <script>
+
+        const menu =document.querySelector("#menu")
+        
+        menu.removeChild(menu.lastElementChild) //for last child delete
+        //menu.innerHTML=''//for all child delete
+
+        // 1.for learn replaceChild
+        /* let list=document.querySelector('#menu')
+
+        let li=document.createElement('li')
+        li.textContent='Home'    
+        list.replaceChild(li,list.firstElementChild)*/
+        
+    </script> 
+</body>
+</html>
