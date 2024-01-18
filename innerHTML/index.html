@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript innerHTML vs createElement</title>
+</head>
+<body>
+    <!-- <div class="container"></div> -->
+
+    <div id="language">
+
+    </div>
+
+    <script>
+        let languages=['Sujon','Sagor','Robi','Habib','Tanvir'];
+        let langEl=document.querySelector('#language');
+        let fragment=new DocumentFragment();
+
+
+        languages.map((language)=>{
+            let li=document.createElement('li');
+            li.innerHTML=language;
+            fragment.appendChild(li);
+        })
+
+        langEl.appendChild(fragment)
+
+       /*  let div=document.querySelector('.container');
+        let fragment=document.createDocumentFragment();
+
+        for(let i=0;i<10;i++){
+            let p=document.createElement('p')
+            p.textContent=`Paragraph ${i}`;
+            fragment.appendChild(p)
+        }
+        div.appendChild(fragment) */
+    </script>
+</body>
+</html>
