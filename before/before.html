@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn before()</title>
+
+    <style>
+        button {
+            padding: 0.75em 1em;
+            background-color: #F7DF1E;
+            color: #000;
+            cursor: pointer;
+            border-radius: 50vw;
+        }
+    </style>
+</head>
+<body>
+    <!-- No.1: <p>This is JavaScript DOM before() method demo.</p> -->
+
+    <!-- No.2:  <ul>
+        <li>Angular</li>
+        <li>Vue</li>
+    </ul> -->
+
+    <button>Donate Here</button>
+    <script>
+
+        let button=document.querySelector('button')
+
+        button.firstChild.before("🧡 ")
+
+  /*      No.1-solution:- let list=document.querySelector('ul');
+
+        let libs=['React','Next js','Mongodb'];
+
+        const items=libs.map((lib)=>{
+            let item=document.createElement('li');
+            item.innerText=lib;
+            return item;
+        });
+        list.firstChild.before(...items); */
+
+
+        /* No.1-solution:- let p=document.querySelector('p')
+
+        const h1=document.createElement('h1');
+        h1.innerText="JavaScript DOM - before()"
+        const h2=document.createElement('h2');
+        h2.innerText="JavaScript DOM - before(h2)"
+
+        p.before(h1,h2) */
+    </script>
+</body>
+</html>
