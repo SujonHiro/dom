@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apendChild</title>
+</head>
+<body>
+    <!-- <ul id="menu">
+    </ul> -->
+    
+    
+    <ul class="firstList">
+        <li>Home</li>
+        <li>About</li>
+        <li>contact</li>
+    </ul>
+    <ul class="secondList">
+        <li>Faq</li>
+        <li>social</li>
+        <li>privacy</li>
+    </ul>
+
+    <script>
+
+            let firstList=document.querySelector('.firstList')
+            let secondList=document.querySelector('.secondList')
+
+            let firstChild=firstList.firstElementChild
+            secondList.appendChild(firstChild)
+
+     /*    function createMenuItem(name){
+            let li=document.createElement('li')
+            li.textContent=name
+            return li
+        }
+        let menu=document.querySelector('.menu')
+
+        menu.appendChild(createMenuItem("Home"))
+        menu.appendChild(createMenuItem("About"))
+        menu.appendChild(createMenuItem("Contact us")) */
+    </script>
+</body>
+</html>
