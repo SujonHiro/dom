@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>JS Page Load Events</title>
+</head>
+
+<body>
+
+
+   <!--  <img id="logo"> -->
+    <script>
+        /* addEventListener('DOMContentLoaded', (event) => {
+            console.log('The DOM is fully loaded.');
+        });
+
+        addEventListener('load', (event) => {
+            console.log('The page is fully loaded.');
+        });
+
+        addEventListener('beforeunload', (event) => {
+            // show the confirmation dialog
+            event.preventDefault();
+            // Google Chrome requires returnValue to be set.
+            event.returnValue = '';
+        });
+
+        addEventListener('unload', (event) => {
+            // send analytic data
+        }); */
+
+
+       /*  window.addEventListener('load', (event) => {
+                console.log('The page has fully loaded');
+            }); */
+            /* window.onload = (event) => {
+                console.log('The page has fully loaded');
+            }; */
+
+
+           /*  let logo = document.querySelector('#logo');
+
+                logo.addEventListener('load', (event) => {
+                    console.log('Logo has been loaded!');
+                });
+
+                logo.src = "logo.jpg"; */
+
+
+                window.addEventListener('load',() => {
+                let logo = document.createElement('img');
+                // assign and onload event handler
+                logo.addEventListener('load', (event) => {
+                    console.log('The logo has been loaded');
+                });
+                // add logo to the document
+                document.body.appendChild(logo);
+                logo.src = 'logo.jpg';
+            });
+
+    </script>
+</body>
+</html>
+</body>
+</html>
