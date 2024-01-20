@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <!--    <style>
+        #content{
+            color: red;
+            padding: 2px;
+        }
+    </style> -->
+</head>
+<body>
+    <p id="content">JavaScript Setting Style Demo!</p>
+    <a href="#">Home</a>
+
+   <!--  <button onclick="clickMe()">click</button>
+    <button onclick="minus()">click(-)</button> -->
+
+    <script>
+
+        let link=document.querySelector('a')
+        let style=getComputedStyle(link,':hover')
+        console.log(style)
+        /* const element = document.getElementById("content");
+        const computedStyle = window.getComputedStyle(element);
+
+        const color = computedStyle.color;
+        const fontSize = computedStyle.fontSize;
+        const backgroundColor = computedStyle.backgroundColor;
+
+        console.log("Color:", color);
+        console.log("Font Size:", fontSize);
+        console.log("Background Color:", backgroundColor); */
+       /*  function clickMe(){
+            let content=document.querySelector('#content')
+            content.style.cssText +='font-weight:bold'
+        }
+        function minus(){
+            content.style.cssText =''
+        } */
+            /* function css(e,styles){
+                for(const property in styles){
+                    e.style[property]=styles[property]
+                }
+            }
+
+            let element=document.querySelector('#content')
+            css(element,{background:'green',border:'1px solid red',fontWeight:'bold',color:"black"}) */
+    </script>
+</body>
+</html>
