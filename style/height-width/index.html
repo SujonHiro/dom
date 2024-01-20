@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting the Width and Height of an Element</title>
+</head>
+<body>
+    <div class="box" style="width:100px;height:150px;border:solid 1px #000;padding:10px; margin:20px"></div>
+    <script>
+       /* let box = document.querySelector('.box');
+         let width = box.offsetWidth;
+        let height = box.offsetHeight; */
+       /*  let width = box.clientWidth;
+        let height = box.clientHeight;
+        console.log({ width, height });
+
+        const domRect=box.getBoundingClientRect()
+        console.log(domRect) */
+        let box = document.querySelector('.box');
+            let style = getComputedStyle(box);
+
+            /* let marginLeft = parseInt(style.marginLeft);
+            let marginRight = parseInt(style.marginRight);
+            let marginTop = parseInt(style.marginTop);
+            let marginBottom = parseInt(style.marginBottom);
+            console.log("marginLeft",marginLeft)
+            console.log("marginRight",marginRight)
+            console.log("marginTop",marginTop)
+            console.log("marginBottom",marginBottom) */
+            let borderTopWidth = parseInt(style.borderTopWidth) || 0;
+            let borderLeftWidth = parseInt(style.borderLeftWidth) || 0;
+            let borderBottomWidth = parseInt(style.borderBottomWidth) || 0;
+            let borderRightWidth = parseInt(style.borderRightWidth) || 0;
+            console.log("borderTopWidth",borderTopWidth)
+    </script>
+</body>
+</html>
