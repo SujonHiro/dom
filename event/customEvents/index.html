@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom event</title>
+</head>
+<body>
+    <div class="note">JS Custom Event Demo</div>
+
+    <script>
+       /*  function highlight(elem,cb){
+            const bgColor='yellow';
+            elem.style.backgroundColor=bgColor;
+
+            if(cb && typeof cb === 'function'){
+                cb(elem)
+            }
+
+        }
+        let note =document.querySelector('.note')
+
+        function addBorder(elem){
+            elem.style.border='solid 1px red'
+        }
+
+        highlight(note,addBorder)*/
+        //To create a custom event, you use the CustomEvent() constructor: */
+        
+
+
+        function addBorder(elem) {
+            elem.style.border = 'solid 1px red';
+
+        }
+
+            // Select the div element
+            let note = document.querySelector('.note');
+
+            note.addEventListener('highlight', (e) => {
+                addBorder(e.target); // pass the target element to addBorder
+                console.log(e.detail);
+            });
+
+            function highlight(elem) {
+                const bgColor = 'yellow';
+                elem.style.backgroundColor = bgColor;
+
+                // create the event
+                let event = new CustomEvent('highlight', {
+                    detail: {
+                        backgroundColor: bgColor
+                    }
+                });
+
+                // dispatch the event
+                elem.dispatchEvent(event);
+            }
+
+            // Call highlight after setting up the event listener
+            highlight(note);
+
+        
+    </script> 
+</body>
+</html>
