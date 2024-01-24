@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="select.css">
+</head>
+<body>
+   <!--  <form>
+        <label for="framework">Select a JS Framework</label>
+        <select id="framework">
+            <option value="1">Angular</option>
+            <option value="2">React</option>
+            <option value="3">Vue.js</option>
+            <option value="4">Ember.js</option>
+        </select>
+        <button id="btn">Get the Selected Index</button>
+    </form> -->
+
+    <!--dynamically add option-->
+            <div id="container">
+                <form>
+                    <label for="framework">Framework:</label>
+                    <input type="text" id="framework" placeholder="Enter a framework" autocomplete="off">
+
+                    <button id="btnAdd">Add</button>
+
+                    <label for="list">Framework List:</label>
+                    <select id="list" name="list" multiple>
+
+                    </select>
+                    <button id="btnRemove">Remove Selected Framework</button>
+                </form>
+            </div>
+
+    <script>
+
+        const btnAdd = document.querySelector('#btnAdd');
+        const btnRemove = document.querySelector('#btnRemove');
+        const listbox = document.querySelector('#list');
+        const framework = document.querySelector('#framework');
+
+       /* dynamically add option */
+        btnAdd.addEventListener("click",(e)=>{
+            e.preventDefault()
+
+            if(framework.value===''){
+                alert("Please enter the name.")
+                return
+            }
+            let option=new Option(framework.value,framework.value)
+
+            listbox.add(option,undefined)
+
+            framework.value=""
+            framework.focus()
+        })
+         
+        btnRemove.addEventListener("click",(e)=>{
+            e.preventDefault()
+
+            let selected=[];
+
+            for(let i=0; i<listbox.options.length;i++){
+                selected[i]=listbox.options[i].selected
+            }
+
+            let index=listbox.options.length
+            
+            while(index--){
+                if(selected[index]){
+                    listbox.remove(index)
+                }
+            }
+            
+        })
+
+        /* let btn=document.querySelector("#btn")
+        let framework=document.querySelector("#framework")
+
+        btn.addEventListener("click",(event)=>{
+            event.preventDefault()
+            const selectedValues=[].filter.call(framework.options,option=>option.selected)
+            .map(option=>option.text)
+            alert(selectedValues)
+        }) */
+    </script>
+</body>
+</html>

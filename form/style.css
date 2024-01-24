@@ -198,6 +198,11 @@ input[type="radio"] {
 	grid-column: 2 / 3;
 }
 
+#framework{
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
 /* Utility classes*/
 .half {
 	width: 50%;
@@ -213,3 +218,4 @@ input[type="radio"] {
 .error {
 	color: #dc3545;
 }
+

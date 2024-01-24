@@ -39,6 +39,7 @@ function validateEmail(input,reqMsg,invMsg){
 const form=document.querySelector("#signup")
 
 
+
 const NAME_REQ="Please enter your name";
 const REQ_EMAIL="Please enter your email";
 const INVALID_EMAIL="Please enter a valid email";
@@ -53,3 +54,5 @@ form.addEventListener("submit",(event)=>{
         alert("Form Submitted")
     }
 })
+
+//select items
