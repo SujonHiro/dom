@@ -6,6 +6,75 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <!-- <button id="btn">check/uncheckAll</button>
+    <p>Select your favorite colors:</p>
+    <label for="c1"> <input type="checkbox" name="color" value="red" id="c1">Red</label>
+    <label for="c2"><input type="checkbox" name="color" value="green" id="c2"> Green</label>
+    <label for="c3"><input type="checkbox" name="color" value="blue" id="c3">Blue</label> -->
+   <!--  <p>
+        <button id="btn">Get Selected Colors</button>
+    </p> -->
+
+    <div id="root"></div>
+
+    <script>
+
+        const colors=['Red','Green',"Blue"]
+
+        const html=colors.map(color=>`<label for="color-${color}">
+            <input type="checkbox" name="color" id="color-${color}"  value="${color}"/>${color}
+            </label>
+        `).join(' ');
+
+        document.querySelector("#root").innerHTML=html
+        console.log(html)
+
+        /* colors.forEach((color)=>{
+            const id=`color-${color}`;
+            const label=document.createElement('label')
+            label.setAttribute("for",id)
+            const checkbox=document.createElement("input")
+            checkbox.type="checkbox"
+            checkbox.name="color"
+            checkbox.value="color"
+            checkbox.id=id
+           
+            label.appendChild(checkbox)
+            console.log(label)
+            label.appendChild(document.createTextNode(color))
+            document.querySelector("#root").append(label)
+          
+        }) */
+
+       /*  function check(checked=true){
+            let checkboxes=document.querySelectorAll('input[name="color"]')
+            checkboxes.forEach((checkbox)=>{
+                checkbox.checked=checked
+            })
+        }
+
+        function checkAll(){
+            check();
+            this.onclick=uncheckAll
+        }
+        function uncheckAll(){
+            check(false);
+            this.onclick=checkAll
+        }
+
+
+        const btn=document.querySelector("#btn")
+
+        btn.onclick=checkAll */
+
+       /*  btn.addEventListener('click',(event)=>{
+            let checkboxes=document.querySelectorAll('input[name="color"]:checked')
+            let values=[]
+            checkboxes.forEach((checkbox)=>{
+                values.push(checkbox.value)
+            })
+            alert(values)
+        }) */
+    </script>
 </body>
 </html>
