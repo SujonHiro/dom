@@ -297,8 +297,7 @@ console.log( unique(strings) ); */
 //Let’s say we received an array of users in the form {id:..., name:..., age:... }.
 //Create a function groupById(arr) that creates an object from it, with id as the key, and array items as values.
 
-
-function groupById(array){
+/* function groupById(array){
     return array.reduce((obj,value)=>{
         obj[value.id]=value
         return obj;
@@ -312,7 +311,7 @@ let users = [
 ];
 
 let usersById = groupById(users);
-console.log(usersById);
+console.log(usersById); */
 
 /*
   // after the call we should have:
@@ -323,3 +322,108 @@ console.log(usersById);
     pete: {id: 'pete', name: "Pete Peterson", age: 31},
   }
   */
+
+//15. Sum all numbers till the given one
+/*sumTo(1) = 1
+sumTo(2) = 2 + 1 = 3
+sumTo(3) = 3 + 2 + 1 = 6
+sumTo(4) = 5 + 4 + 3 + 2+1 = 15 */
+
+/*function sumTo(n){
+  if(n==1){
+    return n;
+  }else{
+    return n+sumTo(n-1)
+  }
+ }
+ console.log(sumTo(5))
+ */
+//calculate factorial
+
+/* function fact(n){
+  if(n==1){
+    return n
+  }else{
+    return  n*fact(n-1)
+  }
+}
+console.log(fact(5)) */
+
+// fibonacci series
+/* function fibo(n) {//5=4+3+2
+  if (n <= 1) {
+    return n;
+  } else {
+    return fibo(n - 1) + fibo(n - 2);
+  }
+}
+
+function sumFibo(n){
+  let sum = 0;
+  for(let i=0;i<=n;i++){
+    sum+=fibo(i)
+  }
+  return sum
+}
+
+console.log(sumFibo(10)); */
+
+//Power Calculation: Write a function to calculate the power of a number raised to an exponent using recursion.
+
+/* function pow(n,exp) {
+  if (exp === 0) {
+    return 1;
+  } else {
+    return n*pow(n,exp-1)
+  }
+}
+console.log(pow(2,7)); */
+
+//Reverse String: Write a function to reverse a string using recursion.
+
+/* function reversed(str) {
+  if (str === "" || str.length === 1) {
+    return str;
+  } else {
+    return str.slice(-1) + reversed(str.slice(0, -1));
+  }
+}
+console.log(reversed("tanvir")); */
+
+//17.Output a single-linked list
+//Write a function printList(list) that outputs list items one-by-one.
+
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+
+function printList(list){
+  console.log(list.value)
+ if(list.next){
+  printList(list.next)
+ }
+ 
+}
+printList(list)
+
+//for reverse
+/* function printList(list){
+  
+ if(list.next){
+  printList(list.next)
+  
+ }
+ console.log(list.value)
+ 
+}
+printList(list) */
