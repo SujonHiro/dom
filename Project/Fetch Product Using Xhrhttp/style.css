@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1084;
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 0 15px;
+    max-width: 100%;
+}
+
+
+.product-list-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+   gap: 30px;
+}
+.post-Item{
+    width: 100%;
+    border: 1px solid red;
+    padding: 5px;
+}
