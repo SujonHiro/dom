@@ -20,7 +20,7 @@
     border-radius: 10px;
 }
 
-.accordionWrapper .accordion-main{
+.accordion-main{
     margin: 20px;
     background: red;
     border-radius: 4px;
@@ -41,12 +41,24 @@
     padding: 20px 0 25px 0;
     display: none;
     border-top: 1px solid;
+    
+   
 }
-.accordion-question.active + .accordion-answer{
+/* .accordion-question.active + .accordion-answer{
     display: block;
+}
+ */
 
+.show-text  .accordion-answer{
+   transition: all 0.5s ease;
+    display: block;
 }
 
-.accordion-question.active i{
+
+.accordion-main.show-text .accordion-question i{
     rotate: 180deg;
 }
+
+/* .accordion-question.active i{
+    rotate: 180deg;
+} */
