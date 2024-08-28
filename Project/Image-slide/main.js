@@ -1,48 +1,51 @@
-const slider = document.querySelector(".slider");
+const sliderContainer = document.querySelector(".slider-container");
 const dotContainer = document.querySelector(".dot-container");
-async function fetchImageSlide() {
+
+async function fetchImageApi() {
   try {
     const response = await fetch(
-      "https://picsum.photos/v2/list?page=2&limit=10",
+      "https://picsum.photos/v2/list?page=2&limit=5",
       {
         method: "GET",
       }
     );
     const result = await response.json();
-    if (result && result.length > 0) displayImages(result);
+
+    if (result && result.length) displayImages(result);
   } catch (error) {
     console.log(error);
   }
 }
+fetchImageApi();
 
-function displayImages(getImagesList) {
-  slider.innerHTML = getImagesList
+function displayImages(getCurrentImages) {
+  sliderContainer.innerHTML = getCurrentImages
     .map(
-      (item) => `<div class="slide">
-          <img src=${item.download_url} alt=${item.author}/>
-          </div>`
+      (item) =>
+        `<div class="slide"><img src=${item.download_url} alt={item.author}/></div>`
     )
     .join(" ");
 
-  dotContainer.innerHTML = getImagesList
+  dotContainer.innerHTML = getCurrentImages
     .map(
-      (item, index) => `<span class="dot ${
-        index === 0 ? "active" : ""
-      }" data-slide=${index}>
-      
-      </span>`
+      (item, index) =>
+        `<span class="dot ${
+          index === 0 ? "active" : ""
+        }" data-slide=${index}></span>`
     )
     .join(" ");
 }
 
-fetchImageSlide();
+// slider functionality
 
 setTimeout(() => {
-  const slide = document.querySelectorAll(".slide");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
+  const slides = document.querySelectorAll(".slide");
+
   let currentSlide = 0;
-  function activeSlide(slide) {
+
+  function activeSLide(slide) {
     document
       .querySelectorAll(".dot")
       .forEach((dotItem) => dotItem.classList.remove("active"));
@@ -51,43 +54,38 @@ setTimeout(() => {
       .classList.add("active");
   }
   function changeCurrentSlide(currentSlide) {
-    slide.forEach(
-      (sliteItem, index) =>
-        (sliteItem.style.transform = `translateX(${
+    slides.forEach(
+      (slideItem, index) =>
+        (slideItem.style.transform = `translateX(${
           100 * (index - currentSlide)
         }%)`)
     );
   }
-
   changeCurrentSlide(currentSlide);
 
-  nextBtn.addEventListener("click", function () {
+  nextBtn.addEventListener("click", () => {
     currentSlide++;
-    /* let testCurrentSlide=slide.length-1; */
-    /* console.log(testCurrentSlide);   */
-    if (slide.length - 1 < currentSlide) {
+    if (slides.length - 1 < currentSlide) {
       currentSlide = 0;
     }
     changeCurrentSlide(currentSlide);
-    activeSlide(currentSlide);
+    activeSLide(currentSlide);
   });
 
-  prevBtn.addEventListener("click", function () {
+  prevBtn.addEventListener("click", () => {
     currentSlide--;
-
     if (0 > currentSlide) {
-      currentSlide = slide.length - 1;
+      currentSlide = slides.length - 1;
     }
     changeCurrentSlide(currentSlide);
-    activeSlide(currentSlide);
+    activeSLide(currentSlide);
   });
-  dotContainer.addEventListener("click", function (event) {
-    
-    //console.log(event.target.dataset);
-    if (event.target.classList.contains("dot")) {
-      const currentSlide = event.target.dataset.slide;
-      changeCurrentSlide(currentSlide);
-      activeSlide(currentSlide);
+  dotContainer.addEventListener("click", (event) => {
+    console.log(event.target.classList,event.target.dataset);
+    if(event.target.classList.contains('dot')){
+      const currentSlide=event.target.dataset.slide
+      changeCurrentSlide(currentSlide)
+      activeSLide(currentSlide)
     }
   });
 }, 1000);
